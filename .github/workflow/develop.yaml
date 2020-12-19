@@ -1,0 +1,16 @@
+name: Develop CI
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  unit-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Go 1.14 unit test
+        run: ./scripts/unit.sh 1.14

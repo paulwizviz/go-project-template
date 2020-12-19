@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+
+  go14:
+    image: golang:1.14
+    container_name: go14
+    working_dir: /opt
+    command: ["go","test","-v","./..."]
+    volumes:
+      - ../../pkg:/opt/pkg
+      - ../../go.mod:/opt/go.mod
+      - ../../go.sum:/opt/go.sum
